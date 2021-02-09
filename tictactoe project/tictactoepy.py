@@ -1,18 +1,23 @@
 import pygame,sys,random,time
 from pygame.locals import*
 import tictactoemini2
+
 pygame.init()
+
 width = 300
 height = 300
 window= pygame.display.set_mode((width,height),0,32)
 pygame.display.set_caption('tictactoe')
+
 black = (0,0,0)
 white = (255,255,255)
 blue = (0,0,255)
 font = pygame.font.SysFont('Gabriola',40)
+
 my = []
 for i in range(3):
   my.append([]*3)
+
 #print my
 size = 100
 for i in range(3):
@@ -22,14 +27,17 @@ for i in range(3):
     pygame.draw.rect(window,my[i][j]['colour'],rect)
     pygame.draw.line(window,blue,(0,size*j),(width,size*j))
   pygame.draw.line(window,blue,(i*size,0),(size*i,height))
-def isptinsiderect((x, y), rect):
-  if (x > rect.left) and (x < rect.right) and (y > rect.top) and (y <rect.bottom):
+
+def isptinsiderect(pos, rect):
+  if (pos.x > rect.left) and (pos.x < rect.right) and (pos.y > rect.top) and (pos.y <rect.bottom):
     return True
+
 def haha(k):
   list1 = [[2,0],[1,0],[0,0],[2,1],[1,1],[0,1],[2,2],[1,2],[0,2]]
   for i in range(len(list1)):
     if list1[i]==k:
       return 9-i-1
+
 def printtxt(s):
   list1 = [[2,0],[1,0],[0,0],[2,1],[1,1],[0,1],[2,2],[1,2],[0,2]]
   for i in range(len(s)):
@@ -50,7 +58,7 @@ def what(p):
   if p==1:
     return 'x'
   return p
-print s[0]
+print(s[0])
 list1 = [[2,0],[1,0],[0,0],[2,1],[1,1],[0,1],[2,2],[1,2],[0,2]]
 while True:
   for event in pygame.event.get():
